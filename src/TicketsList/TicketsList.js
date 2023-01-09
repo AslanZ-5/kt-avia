@@ -7,7 +7,7 @@ const TicketsList = () => {
   return (
     <div className={classes.tickets}>
       <Tabs />
-      <h1>Tickets</h1>
+      <Ticket />
       <Ticket />
       <Ticket />
       <Ticket />

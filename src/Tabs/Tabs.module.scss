@@ -1,3 +1,31 @@
 .tabs {
-  background-color: blue;
+  display: flex;
+  justify-content: space-between;
+
+  .tab {
+    width: 33.11%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #4a4a4a;
+    font-size: 12px;
+    line-height: 20px;
+    border: 1px solid #dfe5ec;
+    background-color: #dfe5ec;
+
+    &:last-child {
+      border-radius: 0 10px 10px 0;
+    }
+    &:first-child {
+      border-radius: 10px 0 0 10px;
+    }
+  }
+  .active {
+    background-color: #2196f3;
+    color: #fff;
+  }
 }
