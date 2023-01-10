@@ -12,6 +12,7 @@ const TicketsList = () => {
       <Ticket />
       <Ticket />
       <Ticket />
+      <button className={classes.btn}>Показать еще 5 билетов!</button>
     </div>
   );
 };
