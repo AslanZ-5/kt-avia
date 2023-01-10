@@ -1,5 +1,5 @@
 import React from "react";
-
+import CheckBox from "../CheckBox/CheckBox";
 import classes from "./Filter.module.scss";
 
 const Filter = () => {
@@ -8,31 +8,11 @@ const Filter = () => {
       <div className={classes.filter}>
         <h3 className={classes.header}>Количество пересадок</h3>
         <div className={classes.control_group}>
-          <label className={`${classes.control} ${classes.control_checkbox}`}>
-            Все
-            <input type="checkbox" />
-            <div className={classes.control_indicator} />
-          </label>
-          <label className={`${classes.control} ${classes.control_checkbox}`}>
-            Без пересадок
-            <input type="checkbox" checked="checked" />
-            <div className={classes.control_indicator} />
-          </label>
-          <label className={`${classes.control} ${classes.control_checkbox}`}>
-            1 пересадка
-            <input type="checkbox" />
-            <div className={classes.control_indicator} />
-          </label>
-          <label className={`${classes.control} ${classes.control_checkbox}`}>
-            2 пересадки
-            <input type="checkbox" />
-            <div className={classes.control_indicator} />
-          </label>
-          <label className={`${classes.control} ${classes.control_checkbox}`}>
-            3 пересадки
-            <input type="checkbox" />
-            <div className={classes.control_indicator} />
-          </label>
+          <CheckBox text="Все" />
+          <CheckBox text=" Без пересадок" checked="checked" />
+          <CheckBox text=" 1 пересадка" checked="checked" />
+          <CheckBox text="2 пересадки" checked="checked" />
+          <CheckBox text="3 пересадки" />
         </div>
       </div>
     </div>
