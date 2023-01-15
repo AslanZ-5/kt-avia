@@ -6,7 +6,14 @@ const CheckBox = ({ text, disabled, checked }) => {
   return (
     <label className={`${classes.control} ${classes.control_checkbox}`}>
       {text}
-      <input type="checkbox" disabled={disabled} checked={checked} />
+      <input
+        type="checkbox"
+        onChange={(e) => {
+          console.log(e);
+        }}
+        disabled={disabled}
+        checked={checked}
+      />
       <div className={classes.control_indicator} />
     </label>
   );
@@ -14,12 +21,12 @@ const CheckBox = ({ text, disabled, checked }) => {
 CheckBox.defaultProps = {
   text: "",
   disabled: "",
-  checked: "",
+  checked: false,
 };
 
 CheckBox.propTypes = {
   text: PropTypes.string,
-  checked: PropTypes.string,
+  checked: PropTypes.bool,
   disabled: PropTypes.string,
 };
 export default CheckBox;
