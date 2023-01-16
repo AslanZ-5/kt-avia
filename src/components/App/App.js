@@ -1,21 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import classes from "./App.module.scss";
 import Logo from "../Logo";
 import Filter from "../Filter";
 import TicketsList from "../TicketsList";
+import { getTicketItems } from "../../features/tickets/ticketsSlice";
 
 const App = () => {
-  // useEffect(() => {
-  //   fetch(
-  //     "https://aviasales-test-api.kata.academy/tickets?searchId=8f9da2672ade9b94c81a0e99cba837ca",
-  //   )
-  //     .then((data) => {
-  //       return data.json();
-  //     })
-  //     .then((data) => {
-  //       console.log(data);
-  //     });
-  // }, []);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getTicketItems());
+  }, []);
   return (
     <div className={classes.App}>
       <Logo />
