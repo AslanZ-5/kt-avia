@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import CheckBox from "../CheckBox/CheckBox";
-import { allChecked } from "../features/checkbox/checkboxSlice";
+import CheckBox from "../CheckBox";
+import { allChecked } from "../../features/checkbox/checkboxSlice";
 import classes from "./Filter.module.scss";
 
 const plainOptions = [

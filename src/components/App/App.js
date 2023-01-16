@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./App.module.scss";
 import Logo from "../Logo";
 import Filter from "../Filter";
-import TicketsList from "../TicketsList/TicketsList";
+import TicketsList from "../TicketsList";
 
 const App = () => {
   // useEffect(() => {
