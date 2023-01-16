@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import CheckBox from "../CheckBox/CheckBox";
+import { allChecked } from "../features/checkbox/checkboxSlice";
 import classes from "./Filter.module.scss";
 
 const plainOptions = [
@@ -8,26 +10,29 @@ const plainOptions = [
   ["2 пересадки", 2],
   ["3 пересадки", 3],
 ];
-const defaultCheckedList = { "1 пересадка": "1", "2 пересадки": "2" };
 const Filter = () => {
-  const [checkedList, setCheckedList] = useState(defaultCheckedList);
-  const [checkAll, setCheckAll] = useState("");
-  const onChange = (e) => {
-    const { checked, value } = e.target;
-    const [name, val] = value.split(",");
-    if (checked) {
-      setCheckedList({ ...checkedList, ...{ [name]: val } });
-    } else {
-      const list = { ...checkedList };
-      delete list[name];
-      setCheckedList(list);
-    }
+  const dispatch = useDispatch();
+  const { checkAll, checkedOptions } = useSelector((state) => {
+    return state.checkbox;
+  });
+  // const [checkAll, setCheckAll] = useState("");
+  // const onChange = (e) => {
+  //   const { checked, value } = e.target;
+  //   const [name, val] = value.split(",");
+  //   if (checked) {
+  //     setCheckedList({ ...checkedList, ...{ [name]: val } });
+  //   } else {
+  //     const list = { ...checkedList };
+  //     delete list[name];
+  //     setCheckedList(list);
+  //   }
 
-    // setCheckAll(list.length === plainOptions.length);
-  };
+  //   // setCheckAll(list.length === plainOptions.length);
+  // };
   const onCheckAllChange = (e) => {
-    setCheckedList(e.target.checked ? Object.fromEntries(plainOptions) : {});
-    setCheckAll(e.target.checked ? "checked" : "");
+    const options = e.target.checked ? Object.fromEntries(plainOptions) : {};
+    const { checked } = e.target;
+    dispatch(allChecked({ options, checked }));
   };
   return (
     <div className={classes.filterContainer}>
@@ -36,17 +41,16 @@ const Filter = () => {
 
         <CheckBox
           onCheckChange={onCheckAllChange}
-          checked={checkAll}
+          checked={checkAll ? "checked" : ""}
           text="Все"
         />
 
         {plainOptions.map((option) => {
           const [name, value] = option;
-          const checked = checkedList[name] > -1 ? "checked" : "";
+          const checked = checkedOptions[name] > -1 ? "checked" : "";
 
           return (
             <CheckBox
-              onCheckChange={onChange}
               key={value}
               value={option}
               text={name}
