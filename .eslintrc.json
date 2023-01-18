@@ -25,6 +25,7 @@
       { "namedComponents": "arrow-function" }
     ],
     "arrow-body-style": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "no-else-return": "off"
   }
 }

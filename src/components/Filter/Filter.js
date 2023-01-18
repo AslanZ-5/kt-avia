@@ -5,30 +5,17 @@ import { allChecked } from "../../features/checkbox/checkboxSlice";
 import classes from "./Filter.module.scss";
 
 const plainOptions = [
-  ["Без пересадок", 0],
-  ["1 пересадка", 1],
-  ["2 пересадки", 2],
-  ["3 пересадки", 3],
+  ["Без пересадок", "0"],
+  ["1 пересадка", "1"],
+  ["2 пересадки", "2"],
+  ["3 пересадки", "3"],
 ];
 const Filter = () => {
   const dispatch = useDispatch();
   const { checkAll, checkedOptions } = useSelector((state) => {
     return state.checkbox;
   });
-  // const [checkAll, setCheckAll] = useState("");
-  // const onChange = (e) => {
-  //   const { checked, value } = e.target;
-  //   const [name, val] = value.split(",");
-  //   if (checked) {
-  //     setCheckedList({ ...checkedList, ...{ [name]: val } });
-  //   } else {
-  //     const list = { ...checkedList };
-  //     delete list[name];
-  //     setCheckedList(list);
-  //   }
 
-  //   // setCheckAll(list.length === plainOptions.length);
-  // };
   const onCheckAllChange = (e) => {
     const options = e.target.checked ? Object.fromEntries(plainOptions) : {};
     const { checked } = e.target;

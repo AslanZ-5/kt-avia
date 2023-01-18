@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classes from "./Ticket.module.scss";
-import img from "./S7.jpg";
+// import img from "./S7.jpg";
 import Flight from "../Flight";
 
 const Ticket = ({ ticket }) => {
@@ -9,7 +9,11 @@ const Ticket = ({ ticket }) => {
     <div className={classes.ticket}>
       <div className={classes.header}>
         <div className={classes.price}>{ticket.price}</div>
-        <img className={classes.img} src={img} alt="ds" />
+        <img
+          className={classes.img}
+          src={`//pics.avs.io/99/36/${ticket.carrier}.png`}
+          alt="ds"
+        />
       </div>
       <Flight segment={ticket.segments[0]} />
       <Flight segment={ticket.segments[1]} />
